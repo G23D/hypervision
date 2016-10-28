@@ -19,12 +19,12 @@ public class EditSizeRotation : MonoBehaviour {
         }
         if (message == "RotY 5")
         {
-            rotation.y = -5f;
+            rotation.y += 5f;
             transform.rotation = Quaternion.Euler(rotation);
         }
         if (message == "RotY -5")
         {
-            rotation.y = 5f;
+            rotation.y -= 5f;
             transform.rotation = Quaternion.Euler(rotation);
         }
     }
