@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.Networking;
 
-
-public class CustomNetworkManager : NetworkManager {
-
+public class EvalInstruction : NetworkBehaviour
+{
     class InstructionMessage : MessageBase
     {
         public string instruction;
@@ -12,21 +12,14 @@ public class CustomNetworkManager : NetworkManager {
 
     const short InstructionMessageID = 888;
 
-	public override void OnClientConnect(NetworkConnection conn) {
-		Debug.Log ("OnClientConnect");
-        client.RegisterHandler(InstructionMessageID, OnInstruction);
+    public void Init()
+    {
+        NetworkServer.RegisterHandler(InstructionMessageID, OnInstruction);
     }
 
-	public override void OnServerConnect(NetworkConnection conn) {
-		Debug.Log ("OnServerConnect");
-	}
-
-    void OnInstruction(NetworkMessage netMsg)
+     void OnInstruction(NetworkMessage netMsg)
     {
         InstructionMessage msg = netMsg.ReadMessage<InstructionMessage>();
         Debug.Log("InstructionMessage " + msg.instruction);
     }
-
 }
-
-
