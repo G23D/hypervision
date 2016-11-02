@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-
+using HoloToolkit.Unity;
 
 public class CustomNetworkManager : NetworkManager {
 
@@ -25,6 +25,13 @@ public class CustomNetworkManager : NetworkManager {
     {
         InstructionMessage msg = netMsg.ReadMessage<InstructionMessage>();
         Debug.Log("InstructionMessage " + msg.instruction);
+
+        // if instruction is enter, select object being gazed
+
+        if (msg.instruction == "enter") {
+            GazeManager.Instance.FocusedObject.GetComponent<TapToPlace>().OnSelect();
+        }
+
     }
 
 }
