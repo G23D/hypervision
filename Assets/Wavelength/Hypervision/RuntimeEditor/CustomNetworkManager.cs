@@ -29,7 +29,7 @@ public class CustomNetworkManager : NetworkManager {
         // if instruction is enter, select object being gazed
 
         if (msg.instruction == "enter") {
-            GazeManager.Instance.FocusedObject.GetComponent<Place>().OnSelect();
+            GazeManager.Instance.FocusedObject.GetComponent<MyTapToPlace>().OnSelect();
         }
 
     }
