@@ -25,7 +25,7 @@
 		//include the default Unity functions/variables etc
 #include "UnityCG.cginc"	
 		//include PA Particle Field		
-#include "../../../Shaders/ParticleField.cginc"
+#include "ParticleField.cginc"
 
 		//include the pa particle features for this effect
 #pragma shader_feature _ DIRECTIONAL_ON SPIN_ON
