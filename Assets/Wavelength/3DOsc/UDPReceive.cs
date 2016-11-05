@@ -91,7 +91,7 @@ public class UDPReceive : MonoBehaviour
         print("UDPSend.init()");
 
         // define port
-        port = 61557;
+        port = 8051;
 
         // status
         print("Sending to 127.0.0.1 : " + port);
