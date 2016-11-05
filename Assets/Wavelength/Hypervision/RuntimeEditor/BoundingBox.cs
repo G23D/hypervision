@@ -13,21 +13,21 @@ public class BoundingBox : MonoBehaviour {
 	void Update () {
         Bounds bbox = GetMaxBounds(targetObject);
 
-        if (GetComponent<MyTapToPlace>().placing)
-        {
-            targetObject.transform.position = transform.position;
+        //if (GetComponent<MyTapToPlace>().placing)
+        //{
+        //    targetObject.transform.position = transform.position;
             //SelectCursor.gameObject.SetActive(true);
             //SelectCursor.transform.position = transform.position;
             //SelectCursor.transform.rotation = transform.rotation;
             //SelectCursor.transform.localScale = transform.localScale;
 
-        }
-        else {
+        //}
+        //else {
             transform.position = bbox.center;
             transform.localScale = bbox.size;
             //SelectCursor.gameObject.SetActive(false);
 
-        }
+        //}
     }
 
     Bounds GetMaxBounds(GameObject g)
