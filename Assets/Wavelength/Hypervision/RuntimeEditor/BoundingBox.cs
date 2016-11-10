@@ -6,28 +6,30 @@ public class BoundingBox : MonoBehaviour {
 
     Bounds bbox;
     public GameObject targetObject;
+    public bool visibleBox;
+    public Color color;
+    public Transform cursor;
     //public GameObject SelectCursor;
     //public bool selected;
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
+
+    void Start() {
+        cursor = transform.FindChild("Cursor");
+    }
+
 	void Update () {
         Bounds bbox = GetMaxBounds(targetObject);
+        transform.position = bbox.center;
+        transform.localScale = bbox.size;        
+    }
 
-        //if (GetComponent<MyTapToPlace>().placing)
-        //{
-        //    targetObject.transform.position = transform.position;
-            //SelectCursor.gameObject.SetActive(true);
-            //SelectCursor.transform.position = transform.position;
-            //SelectCursor.transform.rotation = transform.rotation;
-            //SelectCursor.transform.localScale = transform.localScale;
+    public void show() {
+        cursor.gameObject.SetActive(true);
+    }
 
-        //}
-        //else {
-            transform.position = bbox.center;
-            transform.localScale = bbox.size;
-            //SelectCursor.gameObject.SetActive(false);
-
-        //}
+    public void hide() {
+        cursor.gameObject.SetActive(false);
     }
 
     Bounds GetMaxBounds(GameObject g)

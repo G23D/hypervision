@@ -1,5 +1,6 @@
 ﻿Shader "PA/BoxField" {
 	Properties{
+		_Color ("Color", Color) = (1,1,1,1)
 	}
 	SubShader{
 
@@ -60,9 +61,14 @@
 		return o;
 	}
 
+	fixed4 _Color;
+
 	//the fragment program using custom v2f data struct
 	fixed4 frag(v2f i) : COLOR{
 		fixed4 c = fixed4(0.0,1.0,0.0,1.0); //color the pixel red
+	c.r = _Color.r;
+	c.g = _Color.g;
+	c.b = _Color.b;
 	c.a *= i.color.a; //take the alpha from v2fParticleField's color.a property
 	return c;
 	}

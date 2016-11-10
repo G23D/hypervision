@@ -5,7 +5,7 @@ using HoloToolkit.Unity;
 
 class SelectMessage : MessageBase {
 
-    public int uuid;
+    public string uuid;
     public string comment;
 
 }
@@ -24,7 +24,7 @@ public class TapToPush : MonoBehaviour
         SelectMessage msg = new SelectMessage();
 
         // Send object ID to GUI
-        msg.uuid = this.GetInstanceID();
+        msg.uuid = this.gameObject.name;
         msg.comment = "This is a custom comment";
 
         //Debug.Log(NetManager.GetComponent<CustomNetworkManager>().client);
