@@ -32,8 +32,11 @@ public class CustomNetworkManager : NetworkManager {
         // This code needs to be changed for a proper stack processor and eval function
 
         if (msg.instruction == "enter") {
+			Debug.Log (GazeManager.Instance.FocusedObject);
             GazeManager.Instance.FocusedObject.GetComponent<TapToPush>().OnSelect();
         }
+
+		Debug.Log("Instruction: " + msg.instruction);
 
         string[] tokens = msg.instruction.Split(' ');
 
